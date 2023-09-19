@@ -52,14 +52,6 @@ runs:
         echo "$changelog" >> $GITHUB_OUTPUT
         echo "$EOF" >> $GITHUB_OUTPUT
 
-    - name: Show result
-      shell: bash
-      if: ${{ inputs.save-json-output == 'false' }}
-      run: |
-        echo "$CHANGELOG"
-      env:
-        CHANGELOG: ${{ steps.generate-changelog.outputs.changelog }}
-
     - name: Generate changelog JSON
       id: generate-changelog-json
       shell: bash
